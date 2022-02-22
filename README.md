@@ -30,7 +30,7 @@ At the moment, only nondifferential error is examined.
 
 "Obviously", the MLE is unbiased, especially as `n` increases and/or `alpha` gets closer to zero (more events observed). However, in terms of mean-squared-error, it is almost never worthwhile to use the MLE. This is because, in this simple nondifferential setup, only the specificity, which we can assume to be excellent, is relevant to bias in `beta`. So there is little to no payoff for trading unbiasedness for the considerably larger variance in the MSE relative to the naive estimator. 
 
-!(https://github.com/daob/vaccine-misclassification/blob/dcbe1cff67edcddcac11420ae1a4f42bb9b2ae23/images/mean_absolute_error_big.pdf)
+![Mean absolute error illustration](https://github.com/daob/vaccine-misclassification/blob/dcbe1cff67edcddcac11420ae1a4f42bb9b2ae23/images/mean_absolute_error_big.pdf)
 
 The same results may not hold for relative risk (not examined yet).
 
