@@ -16,7 +16,8 @@
     - Everything, including misclassfication table, is parameterized as a logistic regression. So parameters in these tables are log-linear.
 * Defines _estimators_ you might apply to such data. Currently the following are implemented:
     - "Naive", pretending there is no misclassfication: a logistic regression of oobserved `ystar` on `x`. And the relative risk calculated on the observed `ystar`
-    - "MLE": this formulates the (true) model, including misclassification. This model is estimated by maximizing the marginal log-likelihood directly. TODO: implement EM estimation.
+    - "MLE": this formulates the (true) model, including misclassification. This model is estimated by maximizing the marginal log-likelihood directly. 
+    - "EM": this formulates the same (true) model as MLE, but uses a different estimation method (EM), which is usually more stable.  
 * Defines and runs a _simulation study_ (experiment) in which the following factors are varieed:
     - Sample size `n`
     - The sensitivity and specificity of the event registration (reworked into loglinear paramters `tau` and `lambda`)

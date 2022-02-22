@@ -61,7 +61,8 @@ get_estimator_misclassification_maxlik <- function(tau, lambda) {
 estimator_misclassification_EM <- function(dat, condition,
                                            max_iterations = 200, 
                                            params = NULL,
-                                           verbose = TRUE) {
+                                           verbose = TRUE,
+                                           standard_errors = FALSE) {
   
   if(is.null(params)) params <- c("alpha" = rnorm(1, sd = 0.7), 
                                   "beta" = rnorm(1, sd = 0.7))
@@ -158,9 +159,18 @@ estimator_misclassification_EM <- function(dat, condition,
     loglik_previous <- loglik_current
   }
   if(!converged) warning("EM did not reach convergence criterion.\n")
-
+  
   # Output results in a nice tibble
-  tibble(est_alpha_EM = params['alpha'], 
+  output <- tibble(est_alpha_EM = params['alpha'], 
          est_beta_EM = params['beta'])
+
+  if(standard_errors) {
+    H <- numDeriv::hessian(log_likelihood, params)
+    ses <- sqrt(diag(solve(-H)))
+    output$se_alpha_EM <- ses[1]
+    output$se_beta_EM <- ses[2]
+  }
+  
+  output
 }
 
