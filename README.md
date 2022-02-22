@@ -1,5 +1,12 @@
 # Misclassification models
 
+### How to use
+
+1. Clone the reposity
+2. Open the Rproj file in Rstudio (for example by double-clicking it)
+3. Open the `R/simulation.R` file
+4. Run it
+
 ### Description of setup
 
 * _Simulates_ data with the following setup: 
